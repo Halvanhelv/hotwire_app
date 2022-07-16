@@ -1,0 +1,29 @@
+= turbo_frame_tag user, id: "new_user" do
+  .w-full.max-w-xs
+    == form_with model: user, class: '.bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f|
+      .mb-4
+        = f.label :first_name, class: 'block text-gray-700 text-sm font-bold mb-2', for: 'first_name'
+        = f.text_field :first_name, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none', id: 'first_name', placeholder: 'First Name'
+        = inline_errors_for(user, :first_name)
+      .mb-4
+        = f.label :last_name, class: 'block text-gray-700 text-sm font-bold mb-2', for: 'last_name'
+        = f.text_field :last_name, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none', id: 'first_name', placeholder: 'Last Name'
+        = inline_errors_for(user, :last_name)
+      .mb-4
+        == f.label :email, class: 'block text-gray-700 text-sm font-bold mb-2', for: 'email'
+        == f.text_field :email, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none', id: 'email', placeholder: 'Email'
+        = inline_errors_for(user, :email)
+      .mb-6
+        = f.label :password, class: 'block text-gray-700 text-sm font-bold mb-2', for: 'password'
+        = f.text_field :password, class: 'shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none', for: 'password', placeholder: '******************'
+        = inline_errors_for(user, :password)
+      .mb-6
+        = f.label :password_confirmation, class: 'block text-gray-700 text-sm font-bold mb-2', for: 'password_confirmation'
+        = f.text_field :password_confirmation, class: 'shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none', for: 'password_confirmation', placeholder: '******************'
+        = inline_errors_for(user, :password_confirmation)
+        p.text-red-500.text-xs.italic
+          .flex.items-center.justify-between
+            = f.button class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline', type: 'submit'
+            |  Sign Up
+          a.inline-block.align-baseline.font-bold.text-sm.text-blue-500.hover:text-blue-800[href="#"]
+            |  Forgot Password?
